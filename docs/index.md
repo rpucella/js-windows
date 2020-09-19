@@ -1,5 +1,3 @@
-This is a test
+[Source code](https://github.com/rpucella/js-windows)
 
-- I am a list
-
-[Quick demo](./demo.html)
+[Simple demo](./demo.html)
