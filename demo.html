@@ -48,42 +48,39 @@
       const MIN_HEIGHT = TITLE + BORDER * 2
       const MIN_WIDTH = 40
       const BORDER_COLOR = 'black'   // 'red'
-
-      function initialize () {
-          
-          window.addEventListener('mouseup', event => {
-              if (GLOBAL.dragging) {
-                  GLOBAL.dragging = DRAGGING.none
-              }
-          }, false)
-          
-          window.addEventListener('mousemove', event => {
-              if (GLOBAL.dragging === DRAGGING.window) {
-                  const w = GLOBAL.windows[GLOBAL.dragWindow]
-                  const mx = event.clientX
-                  const my = event.clientY
-                  w.setPosition(mx, my)
-              }
-              else if (GLOBAL.dragging === DRAGGING.bottom) {
-                  const w = GLOBAL.windows[GLOBAL.dragWindow]
-                  const my = event.clientY
-                  w.setHeight(my)
-              }                 
-              else if (GLOBAL.dragging === DRAGGING.right) {
-                  const w = GLOBAL.windows[GLOBAL.dragWindow]
-                  const mx = event.clientX
-                  w.setWidth(mx)
-              }                 
-              else if (GLOBAL.dragging === DRAGGING.corner) {
-                  const w = GLOBAL.windows[GLOBAL.dragWindow]
-                  const mx = event.clientX
-	          const my = event.clientY
-                  w.setWidth(mx)
-	          w.setHeight(my)
-              }                 
-          }, false)
-      }
       
+      window.addEventListener('mouseup', event => {
+          if (GLOBAL.dragging) {
+              GLOBAL.dragging = DRAGGING.none
+          }
+      }, false)
+      
+      window.addEventListener('mousemove', event => {
+          if (GLOBAL.dragging === DRAGGING.window) {
+              const w = GLOBAL.windows[GLOBAL.dragWindow]
+              const mx = event.clientX
+              const my = event.clientY
+              w.setPosition(mx, my)
+          }
+          else if (GLOBAL.dragging === DRAGGING.bottom) {
+              const w = GLOBAL.windows[GLOBAL.dragWindow]
+              const my = event.clientY
+              w.setHeight(my)
+          }                 
+          else if (GLOBAL.dragging === DRAGGING.right) {
+              const w = GLOBAL.windows[GLOBAL.dragWindow]
+              const mx = event.clientX
+              w.setWidth(mx)
+          }                 
+          else if (GLOBAL.dragging === DRAGGING.corner) {
+              const w = GLOBAL.windows[GLOBAL.dragWindow]
+              const mx = event.clientX
+	      const my = event.clientY
+              w.setWidth(mx)
+	      w.setHeight(my)
+          }                 
+      }, false)
+
       function applyStyle (elt, styleObj) {
           Object.keys(styleObj).forEach(k => {
               elt.style[k] = styleObj[k]
